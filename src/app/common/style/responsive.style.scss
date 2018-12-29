@@ -1,0 +1,16 @@
+
+
+header{
+    nav{
+        @media screen and (max-width: 700px) {
+            display: none!important;    
+        }  
+    }
+}
+
+.image-detail{
+    @media screen and (max-width: 1000px) {
+        display: none!important;    
+    }
+}
+
