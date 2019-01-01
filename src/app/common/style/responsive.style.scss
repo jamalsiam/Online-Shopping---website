@@ -1,16 +1,35 @@
-
-
-header{
-    nav{
-        @media screen and (max-width: 700px) {
-            display: none!important;    
-        }  
-    }
+.area-width {
+  width: 1300px;
+  margin: auto;
 }
 
-.image-detail{
-    @media screen and (max-width: 1000px) {
-        display: none!important;    
-    }
+@media screen and (max-width: 1300px) {
+  .area-width {
+    width: 100%;
+  }
 }
 
+@media screen and (max-width: 700px) {
+  header {
+    nav {
+      display: none !important;
+    }
+    .open-menu {
+      display: block !important;
+    }
+  }
+
+  aside {
+    display: flex !important;
+  }
+  .feature-box-containeer{
+      flex-direction: column;
+  }
+}
+
+
+@media screen and (max-width: 1000px) {
+  .image-detail {
+    display: none !important;
+  }
+}

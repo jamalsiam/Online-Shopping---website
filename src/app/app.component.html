@@ -1,8 +1,7 @@
+<app-header (openSideBar)='openSideBar(true)'></app-header>
+<app-aside-bar [isSideBarOpen]='isSideBarOpen' (openSideBar)='openSideBar(false)'></app-aside-bar>
+<main>
+    <router-outlet></router-outlet>
+</main>
 
-<app-header></app-header>
-<img src="assets/bg.jpg" style="width: 100%;" alt="">
-<img src="assets/bg.jpg" style="width: 100%;" alt="">
-<img src="assets/bg.jpg" style="width: 100%;" alt="">
-<img src="assets/bg.jpg" style="width: 100%;" alt="">
-<img src="assets/bg.jpg" style="width: 100%;" alt="">
-<router-outlet></router-outlet>
+<app-footer></app-footer>

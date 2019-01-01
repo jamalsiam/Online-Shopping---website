@@ -1,0 +1,22 @@
+aside{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    nav{
+       background: #fff;
+       flex-grow: 0;
+       flex-basis: 250px;
+       width: 250px;
+    }
+   .close-aside-bar{
+       flex-grow: 1;
+       background: transparent;
+    }
+}
+
+ 
+   

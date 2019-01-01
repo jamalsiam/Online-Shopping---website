@@ -1,0 +1,56 @@
+section {
+  background: url("../../../assets/images/search_bg.jpg") no-repeat 50% fixed /
+    cover;
+  // background: black;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .search-box-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 500px;
+    .search-box {
+      height: 40px;
+      background: #fff;
+      border-radius: 40px;
+      overflow: hidden;
+      margin: 20px;
+      display: flex;
+      background: transparent;
+      input {
+        flex-grow: 1;
+        border: none;
+        padding: 0px 20px;
+        font-size: 16px;
+        &::placeholder {
+          color: rgb(128, 128, 128);
+        }
+      }
+      button {
+        background: #96969669;
+        border-radius: 50%;
+        display: block;
+        width: 40px;
+        border: 2px solid #fff;
+        cursor: pointer;
+        box-shadow: 10px 1px 1px 23px #fff;
+        &:hover {
+          background: #58585869;
+        }
+        &:active {
+          background: #27272769;
+        }
+        i {
+          color: #fff;
+        }
+      }
+    }
+
+    .title-box{
+        color: #fff;
+        text-align: center;
+        font-size: 25px;
+    }
+  }
+}
