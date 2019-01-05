@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as animate from './card-viewer.animation';
-import { CourseListVM } from './../../../../common/models/courseListVM.model';
+import { CardViewListVM } from './../../../../common/models/cardViewListVM.model';
 import { CardViewerStates } from './../../../../common/enums/cardViewerStates.enum';
 const itemOuterWidth = 252;
 
@@ -12,7 +12,7 @@ const itemOuterWidth = 252;
 })
 
 export class CardViewerComponent implements OnInit {
-  @Input('list') list: CourseListVM[];
+  @Input('list') list: CardViewListVM[];
   shiftValue: number;
   currentState: string;
   listLength: number;
