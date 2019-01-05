@@ -1,0 +1,16 @@
+<section class="card-viewer">
+  <div class="row-area">
+    <div class="card-viewer-content" [@shift]="{value: currentState, params: {shiftValue: shiftValue}}">
+      <app-card *ngFor="let card of list" [card]="card"></app-card>
+
+    </div>
+  </div>
+
+  <button class="btn btn-previous" (click)="previousPage()" *ngIf='viewPreviousButton'>
+    <i class="fas fa-angle-left"></i>
+  </button>
+  <button class="btn btn-next" (click)="nextPage()" *ngIf='viewNextButton'>
+    <i class="fas fa-angle-right"></i>
+  </button>
+
+</section>

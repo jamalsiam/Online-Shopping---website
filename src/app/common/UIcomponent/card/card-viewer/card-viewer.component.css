@@ -1,0 +1,46 @@
+.card-viewer {
+  position: relative;
+  
+  margin: 0px auto;
+  width: 1260px;
+}
+.card-viewer .row-area{
+  overflow: hidden;
+}
+.card-viewer .card-viewer-content {
+  display: flex;
+  padding: 4px 0px;
+ 
+}
+
+.btn-previous {
+  left: -20px;
+}
+.btn-next {
+  right: -20px;
+}
+
+.btn {
+  display: block;
+  position: absolute;
+  border: 1px solid #e6e6e6;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  top: calc(40% - 10px);
+  cursor: pointer;
+  background: #fff;
+  box-shadow: 0px 0px 0px 0px #888;
+  transition: background 0.3s;
+}
+.btn> i{
+    font-size: 17px;
+    color: #579dfb;
+}
+.btn:hover {
+  box-shadow: 0px 0px 2px 0px #696969;
+}
+
+.btn:active {
+  background: rgb(236, 236, 236);
+}
