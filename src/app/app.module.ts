@@ -13,6 +13,9 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { FeatureBoxComponent } from './common/feature-box/feature-box.component';
 import { SearchAreaComponent } from './common/search-area/search-area.component';
 import { ItemCardComponent } from './common/item-card/item-card.component';
+import { LoginComponent } from './component/login/login.component';
+import { SignupComponent } from './component/signup/signup.component';
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { ItemCardComponent } from './common/item-card/item-card.component';
     FooterComponent,
     FeatureBoxComponent,
     SearchAreaComponent,
-    ItemCardComponent
+    ItemCardComponent,
+    LoginComponent,
+    SignupComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
