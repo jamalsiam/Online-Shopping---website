@@ -22,11 +22,34 @@
   aside {
     display: flex !important;
   }
-  .feature-box-containeer{
-      flex-direction: column;
+  .feature-box-containeer {
+    flex-direction: column;
+  }
+
+  .form_wrapper {
+    width:100% !important;
+    .col_half {
+      width: 100% !important;
+      float: none!important;
+    }
+  }
+  .bottom_row {
+    .col_half {
+      width: 50%!important;
+      float: left!important;
+    }
+  }
+  .form_container {
+    .row {
+      .col_half.last {
+        border-left: none!important;
+      }
+    }
+  }
+  .remember_me {
+    padding-bottom: 20px!important;
   }
 }
-
 
 @media screen and (max-width: 1000px) {
   .image-detail {

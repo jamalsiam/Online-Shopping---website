@@ -19,6 +19,12 @@ header {
     }
     .logo-container {
       float: left;
+      display: flex;
+      height: 60px;
+      img{
+        margin: auto 10px;
+        height: 40px;
+      }
     }
 
     nav {
@@ -48,7 +54,7 @@ header {
               left: 0px;
               width: 0%;
               height: 2px;
-              background: #fff;
+              background: rgb(167, 163, 163);
               transition: width 0.3s;
             }
           }
@@ -104,12 +110,12 @@ header {
               }
             }
           }
-          &.active{
+          &.active {
             span {
-                &::after {
-                  width: 100%;
-                }
+              &::after {
+                width: 100%;
               }
+            }
           }
         }
       }
