@@ -21,7 +21,8 @@ import { LoginComponent } from './component/login/login.component';
 import { SignupComponent } from './component/signup/signup.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { SignupService } from "./component/signup/service/signup.service";
-import { BaseService } from './framework/service/base.service';
+import { CookieService } from './framework/cookie/cookie.service';
+import * as NgxCookie from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,7 @@ import { BaseService } from './framework/service/base.service';
     HttpClientModule
 
   ],
-  providers: [SignupService],
+  providers: [SignupService, CookieService, NgxCookie.CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

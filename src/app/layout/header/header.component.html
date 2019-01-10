@@ -73,7 +73,7 @@
         <li>
           <span>Others</span>
         </li>
-        <li routerLink="/signin"  routerLinkActive="active">
+        <li *ngIf="!isUserExists" routerLink="/signin"  routerLinkActive="active">
           <span > Signin </span>
         </li>
       </ul>

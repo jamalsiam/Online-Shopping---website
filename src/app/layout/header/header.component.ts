@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { CookieService } from 'src/app/framework/cookie/cookie.service';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +9,16 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Output() openSideBar: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(private cookieService: CookieService) { }
+
+  get isUserExists() {
+    return this.cookieService.checkUserExists();
+  }
 
   openMenu() {
-    console.log(1111111111);
-    
     this.openSideBar.emit();
   }
+
   ngOnInit() {
   }
 

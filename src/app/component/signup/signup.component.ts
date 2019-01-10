@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { MustMatch } from './validators/mustMatch.validator';
 import { SignupService } from './service/signup.service';
+import { CookieService } from 'src/app/framework/cookie/cookie.service';
 
 @Component({
   selector: 'app-signup',
@@ -12,18 +13,8 @@ import { SignupService } from './service/signup.service';
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   loading: boolean = false;
-  constructor(private formBuilder: FormBuilder, private signupService: SignupService) { }
+  constructor(private formBuilder: FormBuilder, private signupService: SignupService, private cookieService: CookieService) { }
 
-  ngOnInit() {
-    this.signupForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required]
-    }, {
-        validator: MustMatch('password', 'confirmPassword')
-      });
-  }
 
 
   // convenience getter for easy access to form fields
@@ -50,7 +41,7 @@ export class SignupComponent implements OnInit {
 
     this.signupService.signup(this.signupForm.value).subscribe(res => {
       console.log(res);
-    
+      this.cookieService.setUserInfo(res)
     }, (err) => {
       this.loading = false;
       if (err.status === 409) {
@@ -58,10 +49,20 @@ export class SignupComponent implements OnInit {
           this.signupForm.controls['email'].setErrors({ 'alreadyExist': true });
         }
       }
-    },()=>{
+    }, () => {
       this.loading = false;
     })
 
   }
 
+  ngOnInit() {
+    this.signupForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', Validators.required]
+    }, {
+        validator: MustMatch('password', 'confirmPassword')
+      });
+  }
 }
