@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 import { MustMatch } from './validators/mustMatch.validator';
 import { SignupService } from './service/signup.service';
 import { CookieService } from 'src/app/framework/cookie/cookie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +13,10 @@ import { CookieService } from 'src/app/framework/cookie/cookie.service';
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   loading: boolean = false;
-  constructor(private formBuilder: FormBuilder, private signupService: SignupService, private cookieService: CookieService) { }
+  constructor(private formBuilder: FormBuilder,
+    private signupService: SignupService,
+    private cookieService: CookieService,
+    private router: Router) { }
 
 
 
@@ -40,8 +43,9 @@ export class SignupComponent implements OnInit {
     }
 
     this.signupService.signup(this.signupForm.value).subscribe(res => {
-      console.log(res);
-      this.cookieService.setUserInfo(res)
+      this.cookieService.setUserInfo(res);
+      this.router.navigate(['']);
+
     }, (err) => {
       this.loading = false;
       if (err.status === 409) {

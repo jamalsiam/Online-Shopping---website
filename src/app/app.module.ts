@@ -23,6 +23,9 @@ import { PageNotFoundComponent } from './component/page-not-found/page-not-found
 import { SignupService } from "./component/signup/service/signup.service";
 import { CookieService } from './framework/cookie/cookie.service';
 import * as NgxCookie from 'ngx-cookie-service';
+import { LogoutComponent } from './component/logout/logout.component';
+import { UnauthorizedCanActivate, } from './framework/canActivate/unauthorized.canActivate';
+import { AuthorizedCanActivate } from './framework/canActivate/authorized.canActivate';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import * as NgxCookie from 'ngx-cookie-service';
     SignupComponent,
     PageNotFoundComponent,
     CardViewerComponent,
-    CardComponent
+    CardComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,12 @@ import * as NgxCookie from 'ngx-cookie-service';
     HttpClientModule
 
   ],
-  providers: [SignupService, CookieService, NgxCookie.CookieService],
+  providers: [
+    SignupService,
+    CookieService,
+    NgxCookie.CookieService,
+    UnauthorizedCanActivate,
+    AuthorizedCanActivate],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

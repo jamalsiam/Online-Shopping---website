@@ -76,6 +76,11 @@
         <li *ngIf="!isUserExists" routerLink="/signin"  routerLinkActive="active">
           <span > Signin </span>
         </li>
+
+        <li *ngIf="isUserExists" routerLink="/signout"  routerLinkActive="active">
+          <span > Signout </span>
+        </li>
+        
       </ul>
     </nav>
   </div>

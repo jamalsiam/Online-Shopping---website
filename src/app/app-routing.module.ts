@@ -3,7 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
 import { SignupComponent } from './component/signup/signup.component';
+import { LogoutComponent } from './component/logout/logout.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { UnauthorizedCanActivate } from './framework/canActivate/unauthorized.canActivate';
+import { AuthorizedCanActivate } from './framework/canActivate/authorized.canActivate';
 
 const routes: Routes = [
   {
@@ -12,11 +15,20 @@ const routes: Routes = [
   },
   {
     path: 'signin',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [UnauthorizedCanActivate]
+
   },
   {
     path: 'signup',
-    component: SignupComponent
+    component: SignupComponent,
+    canActivate: [UnauthorizedCanActivate]
+
+  },
+  {
+    path: 'signout',
+    component: LogoutComponent,
+    canActivate: [AuthorizedCanActivate]
   },
   {
     path: '',
