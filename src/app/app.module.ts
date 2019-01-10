@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SlideshowModule } from 'ng-simple-slideshow';
-import { ReactiveFormsModule ,FormsModule} from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { CardViewerComponent } from './common/UIcomponent/card/card-viewer/card-viewer.component';
 import { CardComponent } from './common/UIcomponent/card/card.component';
@@ -19,6 +20,8 @@ import { ItemCardComponent } from './common/UIcomponent/item-card/item-card.comp
 import { LoginComponent } from './component/login/login.component';
 import { SignupComponent } from './component/signup/signup.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { SignupService } from "./component/signup/service/signup.service";
+import { BaseService } from './framework/service/base.service';
 
 @NgModule({
   declarations: [
@@ -43,10 +46,11 @@ import { PageNotFoundComponent } from './component/page-not-found/page-not-found
     AppRoutingModule,
     SlideshowModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
 
   ],
-  providers: [],
+  providers: [SignupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,49 +1,72 @@
 <section>
-    <div class="login-container">
-      <div class="form_wrapper">
-        <div class="form_container">
-  
-          <div class="row clearfix">
-  
-  
-            <div class="col_half last">
-              <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-                <div class="input_field">
-                  <span>
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                  </span>
-                  <input type="text" formControlName="username" placeholder="username" />
+  <div class="login-container">
+    <div class="form_wrapper">
+      <div class="form_container">
+
+        <div class="row clearfix">
+
+
+          <div class="col_half last">
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+              <div class="input_field">
+                <span>
+                  <i class="fa fa-lock" aria-hidden="true"></i>
+                </span>
+                <input type="text" formControlName="username" placeholder="username" />
+                <div *ngIf="_signupForm.username.errors && !_signupForm.username.untouched" class="error-message">
+                  <div *ngIf="_signupForm.username.errors.required">Username is required</div>
                 </div>
-  
-                <div class="input_field"><span>
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                  </span>
-                  <input type="email" formControlName="email" placeholder="Email" />
+              </div>
+
+              <div class="input_field"><span>
+                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                </span>
+                <input type="email" formControlName="email" placeholder="Email" />
+                <div *ngIf="_signupForm.email.errors && !_signupForm.email.untouched" class="error-message">
+                  <div *ngIf="_signupForm.email.errors.required">Email is required</div>
+                  <div *ngIf="_signupForm.email.errors.email">Email is uncorrect</div>
+                  <div *ngIf="_signupForm.email.errors.alreadyExist">Email already exist</div>
                 </div>
-  
-                <div class="input_field">
-                  <span>
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                  </span>
-                  <input type="password" formControlName="password" placeholder="Password" />
+              </div>
+
+              <div class="input_field">
+                <span>
+                  <i class="fa fa-lock" aria-hidden="true"></i>
+                </span>
+                <input type="password" formControlName="password" placeholder="Password" />
+                <div *ngIf="_signupForm.password.errors && !_signupForm.password.untouched" class="error-message">
+                  <div *ngIf="_signupForm.password.errors.required">Password is required</div>
+                  <div *ngIf="_signupForm.password.errors.minlength">Password is short</div>
+
                 </div>
-                <div class="input_field">
-                  <span>
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                  </span>
-                  <input type="password" formControlName="confirmPassword" placeholder="Password" />
+              </div>
+              <div class="input_field">
+                <span>
+                  <i class="fa fa-lock" aria-hidden="true"></i>
+                </span>
+                <input type="password" formControlName="confirmPassword" placeholder="Password" />
+                <div *ngIf="_signupForm.confirmPassword.errors && !_signupForm.confirmPassword.untouched" class="error-message">
+                  <div *ngIf="_signupForm.confirmPassword.errors.required">Password is required</div>
+                  <div *ngIf="_signupForm.confirmPassword.errors.minlength">Password is short</div>
+                  <div *ngIf="_signupForm.confirmPassword.errors.mustMatch">Password is miss Match</div>
+
                 </div>
-                <input class="button" type="submit" value="Sign in" />
-                <div class="row clearfix bottom_row">
-  
-                  <div class="col_half forgot_pw">
-                    <a href="#">Forgot Password?</a>
-                  </div>
+              </div>
+
+              <button class="button"> 
+                <img src="assets/images/loading.gif" *ngIf="loading" class="loading">
+                {{ loading? '': 'Sign in'}}
+               </button>
+              <div class="row clearfix bottom_row">
+
+                <div class="col_half forgot_pw">
+                  <a href="#">Forgot Password?</a>
                 </div>
-              </form>
-            </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

@@ -124,7 +124,7 @@ $red: #de4c33;
       border: 1px solid $yellow;
     }
   }
-  input[type="submit"] {
+  button {
     background: $yellow;
     height: 35px;
     line-height: 35px;
@@ -222,4 +222,16 @@ input.ng-invalid.ng-touched {
   -moz-box-shadow: 0 0 2px 1px rgba(255, 17, 0, 0.5)!important;
   box-shadow: 0 0 2px 1px rgba(255, 17, 0, 0.5)!important;
   border: 1px solid $red!important;
+}
+
+.error-message{
+  position: absolute;
+  font-size: 11px;
+  color: red;
+  left: 30px;
+  bottom: -16px;
+}
+
+.loading{
+  height: 20px;
 }
