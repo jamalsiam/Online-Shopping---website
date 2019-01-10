@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SlideshowModule } from 'ng-simple-slideshow';
+import { ReactiveFormsModule ,FormsModule} from '@angular/forms';
 
 import { CardViewerComponent } from './common/UIcomponent/card/card-viewer/card-viewer.component';
 import { CardComponent } from './common/UIcomponent/card/card.component';
@@ -41,6 +42,8 @@ import { PageNotFoundComponent } from './component/page-not-found/page-not-found
     BrowserAnimationsModule,
     AppRoutingModule,
     SlideshowModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

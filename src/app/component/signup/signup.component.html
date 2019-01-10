@@ -1,3 +1,49 @@
-<p>
-  signup works!
-</p>
+<section>
+    <div class="login-container">
+      <div class="form_wrapper">
+        <div class="form_container">
+  
+          <div class="row clearfix">
+  
+  
+            <div class="col_half last">
+              <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                <div class="input_field">
+                  <span>
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                  </span>
+                  <input type="text" formControlName="username" placeholder="username" />
+                </div>
+  
+                <div class="input_field"><span>
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                  </span>
+                  <input type="email" formControlName="email" placeholder="Email" />
+                </div>
+  
+                <div class="input_field">
+                  <span>
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                  </span>
+                  <input type="password" formControlName="password" placeholder="Password" />
+                </div>
+                <div class="input_field">
+                  <span>
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                  </span>
+                  <input type="password" formControlName="confirmPassword" placeholder="Password" />
+                </div>
+                <input class="button" type="submit" value="Sign in" />
+                <div class="row clearfix bottom_row">
+  
+                  <div class="col_half forgot_pw">
+                    <a href="#">Forgot Password?</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
