@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { CookieService } from '../cookie/cookie.service';
 import { AccountVM } from '../dataStore/account/models/account.model';
 import { AccountStore } from '../dataStore/account/account.store';
-import { Observable, Subscription } from 'rxjs';
 
 
 @Injectable({
@@ -11,18 +10,19 @@ import { Observable, Subscription } from 'rxjs';
 })
 export class AppInitializerService {
 
-  constructor(private httpClient: HttpClient, private cookie: CookieService, private accountStore: AccountStore) {
+  constructor(private httpClient: HttpClient, private cookie: CookieService,private accountStore: AccountStore) {
 
   }
 
-  initializeApp(): Subscription {
+  initializeApp(): Promise<any> {
 
 
-    return this.httpClient
-      .get(`/api/account/info`)
-      .subscribe((res: AccountVM) => {
+    return this.httpClient.get(`/api/account/info`)
+      .toPromise()
+      .then((res: AccountVM) => {
         this.accountStore.setAccountInfo(res)
-      }, (error) => {
+      })
+      .catch((error) => {
 
         if (error.status === 404) {
           this.cookie.removeUser();
@@ -30,7 +30,6 @@ export class AppInitializerService {
         console.log('No Account Info!!!');
 
       })
-
 
   }
 }
