@@ -6,51 +6,68 @@
         <div class="row clearfix">
           <div class="col_half">
             <div class="social_btn fb">
-              <a href="#">
+              <a href="http://localhost:8000/api/auth/facebook">
                 <span>
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                  <i class="fab fa-facebook-square" aria-hidden="true"></i>
                 </span>
                 Sign in with Facebook
               </a>
             </div>
-            <div class="social_btn tw">
-              <a href="#">
-                <span>
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </span>
-                Sign in with Twitter
-              </a>
-            </div>
 
             <div class="social_btn gplus">
-              <a href="#">
+              <a href="http://localhost:8000/api/auth/google">
                 <span>
-                  <i class="fa fa-google-plus" aria-hidden="true"></i>
+                  <i class="fab fa-google-plus-g"></i>
                 </span>
                 Sign in with Google+
               </a>
             </div>
+
+            <div class="social_btn tw">
+                <a href="#">
+                  <span>
+                      <i class="fas fa-qrcode"></i>
+                  </span>
+                  Sign in by QR Code
+                </a>
+              </div>
+  
             <div class="row clearfix create_account">
-              <div><a routerLink="/signup" >Create an Account</a></div>
+              <div><a routerLink="/signup">Create an Account</a></div>
             </div>
           </div>
 
           <div class="col_half last">
-            <form>
+            <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
               <div class="input_field"><span>
                   <i class="fa fa-envelope" aria-hidden="true"></i>
                 </span>
-                <input type="email" name="email" placeholder="Email" required="" />
+                <input type="email" name="email" formControlName="email" placeholder="Email" />
+                <div *ngIf="_signinForm.email.errors && !_signinForm.email.untouched" class="error-message">
+                  <div *ngIf="_signinForm.email.errors.required">Email is required</div>
+                  <div *ngIf="_signinForm.email.errors.email">Email is uncorrect</div>
+                </div>
               </div>
+
               <div class="input_field">
                 <span>
                   <i class="fa fa-lock" aria-hidden="true"></i>
                 </span>
-                <input type="password" name="phone" placeholder="Password" required="" />
+                <input type="password" formControlName="password" placeholder="Password" />
+                <div *ngIf="_signinForm.password.errors && !_signinForm.password.untouched" class="error-message">
+                  <div *ngIf="_signinForm.password.errors.required">Password is required</div>
+                  <div *ngIf="_signinForm.password.errors.invalidEmailOrPassword">Invalid Email/Password</div>
+                </div>
               </div>
-              <input class="button" type="submit" value="Sign in" />
+
+              <button class="button">
+                <img src="assets/images/loading.gif" *ngIf="loading" class="loading">
+                {{ loading? '': 'Sign in'}}
+              </button>
+
+
               <div class="row clearfix bottom_row">
-              
+
                 <div class="col_half forgot_pw">
                   <a href="#">Forgot Password?</a>
                 </div>

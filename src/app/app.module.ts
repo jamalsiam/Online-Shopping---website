@@ -26,6 +26,7 @@ import * as NgxCookie from 'ngx-cookie-service';
 import { LogoutComponent } from './component/logout/logout.component';
 import { UnauthorizedCanActivate, } from './framework/canActivate/unauthorized.canActivate';
 import { AuthorizedCanActivate } from './framework/canActivate/authorized.canActivate';
+import { LoginService } from './component/login/service/login.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,9 @@ import { AuthorizedCanActivate } from './framework/canActivate/authorized.canAct
     CookieService,
     NgxCookie.CookieService,
     UnauthorizedCanActivate,
-    AuthorizedCanActivate],
+    AuthorizedCanActivate,
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

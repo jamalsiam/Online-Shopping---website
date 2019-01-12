@@ -37,6 +37,9 @@ export class CookieService {
 
   }
 
+  getAll() {
+   return this.cookie.getAll();
+  }
   removeAll() {
     this.cookie.deleteAll();
   }
