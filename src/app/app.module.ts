@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER, } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SlideshowModule } from 'ng-simple-slideshow';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { CardViewerComponent } from './common/UIcomponent/card/card-viewer/card-viewer.component';
 import { CardComponent } from './common/UIcomponent/card/card.component';
@@ -27,6 +27,9 @@ import { LogoutComponent } from './component/logout/logout.component';
 import { UnauthorizedCanActivate, } from './framework/canActivate/unauthorized.canActivate';
 import { AuthorizedCanActivate } from './framework/canActivate/authorized.canActivate';
 import { LoginService } from './component/login/service/login.service';
+import { AppInitializerService } from './framework/appInitializer/appInitializer.service';
+import { RequestInterceptor } from './framework/interceptor/request.interceptor';
+import { AccountStore } from './framework/dataStore/account/account.store';
 
 @NgModule({
   declarations: [
@@ -62,8 +65,24 @@ import { LoginService } from './component/login/service/login.service';
     NgxCookie.CookieService,
     UnauthorizedCanActivate,
     AuthorizedCanActivate,
-    LoginService
+    LoginService,
+    AccountStore,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: init_app,
+      deps: [AppInitializerService],
+      multi: true
+    }, {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true,
+    }
+
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function init_app(firstLoadService: AppInitializerService) {
+  return () => firstLoadService.initializeApp();
+}
