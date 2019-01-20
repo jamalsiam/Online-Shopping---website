@@ -7,6 +7,7 @@ import { LogoutComponent } from './component/logout/logout.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { UnauthorizedCanActivate } from './framework/canActivate/unauthorized.canActivate';
 import { AuthorizedCanActivate } from './framework/canActivate/authorized.canActivate';
+import { AddItemComponent } from './component/add-item/add-item.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path: 'signout',
     component: LogoutComponent,
+    canActivate: [AuthorizedCanActivate]
+  },
+  {
+    path: 'addItem',
+    component: AddItemComponent,
     canActivate: [AuthorizedCanActivate]
   },
   {
