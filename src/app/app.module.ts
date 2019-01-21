@@ -30,6 +30,10 @@ import { LoginService } from './component/login/service/login.service';
 import { AppInitializerService } from './framework/appInitializer/appInitializer.service';
 import { RequestInterceptor } from './framework/interceptor/request.interceptor';
 import { AccountStore } from './framework/dataStore/account/account.store';
+import { AddItemComponent } from './component/add-item/add-item.component';
+import { AddItemService } from './component/add-item/service/add-item.service';
+import { MaterialModule } from './material';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,8 @@ import { AccountStore } from './framework/dataStore/account/account.store';
     PageNotFoundComponent,
     CardViewerComponent,
     CardComponent,
-    LogoutComponent
+    LogoutComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +61,9 @@ import { AccountStore } from './framework/dataStore/account/account.store';
     SlideshowModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule,
+    ToastrModule.forRoot()
 
   ],
   providers: [
@@ -67,6 +74,7 @@ import { AccountStore } from './framework/dataStore/account/account.store';
     AuthorizedCanActivate,
     LoginService,
     AccountStore,
+    AddItemService,
     {
       provide: APP_INITIALIZER,
       useFactory: init_app,
