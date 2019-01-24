@@ -31,7 +31,7 @@ import { AppInitializerService } from './framework/appInitializer/appInitializer
 import { RequestInterceptor } from './framework/interceptor/request.interceptor';
 import { AccountStore } from './framework/dataStore/account/account.store';
 import { AddItemComponent } from './component/add-item/add-item.component';
-import { AddItemService } from './component/add-item/service/add-item.service';
+import { ItemService } from './common/services/item.service';
 import { MaterialModule } from './material';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -74,7 +74,7 @@ import { ToastrModule } from 'ngx-toastr';
     AuthorizedCanActivate,
     LoginService,
     AccountStore,
-    AddItemService,
+    ItemService,
     {
       provide: APP_INITIALIZER,
       useFactory: init_app,

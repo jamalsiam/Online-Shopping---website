@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AddItemService } from './service/add-item.service';
+import { ItemService } from '../../common/services/item.service';
 import { FormGroup, FormBuilder, Validators, } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ItemVM } from 'src/app/common/models/itemVM.model';
@@ -39,7 +39,7 @@ export class AddItemComponent implements OnInit {
   ];
 
 
-  constructor(private formBuilder: FormBuilder, private addItemService: AddItemService, private toastr: ToastrService) { }
+  constructor(private formBuilder: FormBuilder, private itemService: ItemService, private toastr: ToastrService) { }
 
   get _itemForm() { return this.itemForm.controls; }
 
@@ -109,7 +109,7 @@ export class AddItemComponent implements OnInit {
     }
     if (!this.loading) {
       this.loading = true;
-      this.addItemService.addItem({
+      this.itemService.addItem({
         ...this.itemForm.value
       })
         .subscribe(

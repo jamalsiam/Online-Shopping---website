@@ -5,14 +5,11 @@ import { ItemVM } from 'src/app/common/models/itemVM.model';
 @Injectable({
   providedIn: 'root'
 })
-export class AddItemService {
+export class ItemService {
 
   constructor(public http: HttpClient) { }
 
   addItem(data: ItemVM): Observable<any> {
-
-
-
     const formData: FormData = new FormData();
 
     for (var i = 0; i < data.images.length; i++) {
@@ -22,6 +19,7 @@ export class AddItemService {
 
     return this.http.post<ItemVM>(`/api/item`, formData);
   }
+  
 
 
 
