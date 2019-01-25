@@ -34,7 +34,7 @@ import { AddItemComponent } from './component/add-item/add-item.component';
 import { ItemService } from './common/services/item.service';
 import { MaterialModule } from './material';
 import { ToastrModule } from 'ngx-toastr';
-
+import { MomentModule } from 'angular2-moment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +63,8 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     HttpClientModule,
     MaterialModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MomentModule
 
   ],
   providers: [

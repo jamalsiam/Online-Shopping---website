@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { ItemVM } from '../../models/itemVM.model';
 
 @Component({
   selector: 'app-item-card',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item-card.component.scss']
 })
 export class ItemCardComponent implements OnInit {
-
+@Input('data') data:ItemVM;
   constructor() { }
 
   ngOnInit() {
+    console.log(this.data);
+    
   }
 
 }

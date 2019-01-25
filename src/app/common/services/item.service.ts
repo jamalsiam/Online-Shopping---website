@@ -19,7 +19,10 @@ export class ItemService {
 
     return this.http.post<ItemVM>(`/api/item`, formData);
   }
-  
+
+  itemListHomePage(): Observable<any> {
+    return this.http.get<ItemVM[]>(`/api/item/list`);
+  }
 
 
 
