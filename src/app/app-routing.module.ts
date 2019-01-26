@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from './component/page-not-found/page-not-found
 import { UnauthorizedCanActivate } from './framework/canActivate/unauthorized.canActivate';
 import { AuthorizedCanActivate } from './framework/canActivate/authorized.canActivate';
 import { AddItemComponent } from './component/add-item/add-item.component';
+import { ItemDetailComponent } from './component/item-detail/item-detail.component';
 
 const routes: Routes = [
   {
@@ -35,7 +36,12 @@ const routes: Routes = [
     path: 'addItem',
     component: AddItemComponent,
     canActivate: [AuthorizedCanActivate]
+  },{
+    path: 'item/:id',
+    component: ItemDetailComponent,
   },
+
+  
   {
     path: '',
     redirectTo: '/home',

@@ -23,6 +23,9 @@ export class ItemService {
   itemListHomePage(): Observable<any> {
     return this.http.get<ItemVM[]>(`/api/item/list`);
   }
+  viewItem(id): Observable<any> {
+    return this.http.get<ItemVM>(`/api/item/${id}`);
+  }
 
 
 

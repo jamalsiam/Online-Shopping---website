@@ -10,9 +10,6 @@ export class ItemCardComponent implements OnInit {
 @Input('data') data:ItemVM;
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.data);
-    
-  }
+  ngOnInit() { }
 
 }

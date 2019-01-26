@@ -23,6 +23,7 @@ import { PageNotFoundComponent } from './component/page-not-found/page-not-found
 import { SignupService } from "./component/signup/service/signup.service";
 import { CookieService } from './framework/cookie/cookie.service';
 import * as NgxCookie from 'ngx-cookie-service';
+import { NgxGalleryModule } from 'ngx-gallery';
 import { LogoutComponent } from './component/logout/logout.component';
 import { UnauthorizedCanActivate, } from './framework/canActivate/unauthorized.canActivate';
 import { AuthorizedCanActivate } from './framework/canActivate/authorized.canActivate';
@@ -35,6 +36,8 @@ import { ItemService } from './common/services/item.service';
 import { MaterialModule } from './material';
 import { ToastrModule } from 'ngx-toastr';
 import { MomentModule } from 'angular2-moment';
+import { ItemDetailComponent } from './component/item-detail/item-detail.component';
+import { GalleryComponent } from './common/UIcomponent/gallery/gallery.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +55,9 @@ import { MomentModule } from 'angular2-moment';
     CardViewerComponent,
     CardComponent,
     LogoutComponent,
-    AddItemComponent
+    AddItemComponent,
+    ItemDetailComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +69,8 @@ import { MomentModule } from 'angular2-moment';
     HttpClientModule,
     MaterialModule,
     ToastrModule.forRoot(),
-    MomentModule
+    MomentModule,
+    NgxGalleryModule
 
   ],
   providers: [

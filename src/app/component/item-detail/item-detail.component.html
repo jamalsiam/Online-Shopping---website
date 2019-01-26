@@ -1,0 +1,30 @@
+<section *ngIf='itemData'>
+    <gallery [list]='itemData.images'></gallery>
+    <div class="description-area">
+        <p><span class="title"> name:</span> {{itemData.name}} <small>{{itemData.new?'NEW':'USED'}}</small> </p>
+        <p> <span class="title"> category:</span> {{itemData.category}}</p>
+        <pre><p class="title" >description:</p> {{itemData.description}}</pre>
+
+
+        <p><span class="title"> price:</span>
+            {{discount(itemData.price,itemData.discount) | currency }}
+            <del *ngIf='itemData.discount'>{{ itemData.price | currency }}</del>
+        </p>
+        <p><span class="title"> createdAt:</span> {{itemData.createdAt | amTimeAgo}}</p>
+        <button mat-stroked-button><i class="fas fa-cart-plus"></i> Add To Cart</button>
+        <div class="user-profile">
+            <h4 class="profile-title">seller Profile</h4>
+            <div class="profile-content" [routerLink]="[ '/user',itemData.user.id]">
+                <img class="user-image" src="https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                    alt="">
+                <p class="user-name">
+                    {{'@'+itemData.user.username}}
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<mat-spinner  *ngIf='!itemData'></mat-spinner>
