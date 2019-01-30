@@ -1,0 +1,77 @@
+<section>
+  <mat-toolbar class="toolbar-add-item">
+
+    <mat-toolbar-row (click)="openAddItemDialog()">
+      <span>Add New Item</span>
+      <span class="spacer"></span>
+      <mat-icon class="icon">add</mat-icon>
+    </mat-toolbar-row>
+
+  </mat-toolbar>
+  <mat-divider></mat-divider>
+  <h4>your Items</h4>
+  <div class="table-container">
+    <mat-table [dataSource]="itemList" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="images">
+        <mat-header-cell *matHeaderCellDef> image </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <img [src]="element.images" class="item-image">
+        </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="category">
+        <mat-header-cell *matHeaderCellDef> category </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.category}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="new">
+        <mat-header-cell *matHeaderCellDef> new </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.new}} </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="createdAt">
+        <mat-header-cell *matHeaderCellDef> createdAt </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.createdAt | amTimeAgo}} </mat-cell>
+      </ng-container>
+
+
+
+      <ng-container matColumnDef="discount">
+        <mat-header-cell *matHeaderCellDef> discount </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.discount}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef> price </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+
+          <button [disabled]="deleteLoader===element.id" mat-flat-button color="warn" (click)='onDeleteItem(element.id)'>
+            {{ deleteLoader !==element.id? 'Delete':''}}
+            <mat-spinner *ngIf='deleteLoader===element.id' color="warn" diameter='40'></mat-spinner>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+
+  <mat-spinner *ngIf='!itemList' diameter='50'></mat-spinner>
+</section>

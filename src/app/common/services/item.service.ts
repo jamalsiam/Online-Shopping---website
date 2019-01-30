@@ -27,6 +27,13 @@ export class ItemService {
     return this.http.get<ItemVM>(`/api/item/${id}`);
   }
 
+  accountList(): Observable<any> {
+    return this.http.get<ItemVM[]>(`/api/item/accountList`);
+  }
+
+  deleteItem(itemId): Observable<any> {
+    return this.http.delete<ItemVM[]>(`/api/item/delete/${itemId}`);
+  }
 
 
 }

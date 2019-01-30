@@ -6,7 +6,7 @@
     </div>
     <nav>
       <ul>
-        <li routerLink="/home"  routerLinkActive="active">
+        <li routerLink="/home" routerLinkActive="active">
           <span> Home </span>
         </li>
 
@@ -73,14 +73,24 @@
         <li>
           <span>Others</span>
         </li>
-        <li *ngIf="!isUserExists" routerLink="/signin"  routerLinkActive="active">
-          <span > Signin </span>
+        <li *ngIf="!isUserExists" routerLink="/signin" routerLinkActive="active">
+          <span> Signin </span>
         </li>
 
-        <li *ngIf="isUserExists" routerLink="/signout"  routerLinkActive="active">
-          <span > Signout </span>
+
+
+        <li *ngIf="isUserExists">
+          <span [matMenuTriggerFor]="menu"> {{username}} </span>
+
+          <mat-menu #menu="matMenu">
+            <img class="user-image" src="https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260">
+            <button mat-menu-item routerLink="/item-management">Item Management</button>
+            <button mat-menu-item routerLink="/profile">Profile</button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item routerLink="/signout">Signout</button>
+          </mat-menu>
         </li>
-        
+
       </ul>
     </nav>
   </div>

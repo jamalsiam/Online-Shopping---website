@@ -1,4 +1,4 @@
-<form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="itemForm" (ngSubmit)="onSubmit()" *ngIf='!loading'>
   <div class="form-content">
     <h3>Add Item:</h3>
 
@@ -70,10 +70,15 @@
  
     </div>
 
-    <button mat-flat-button color="primary">
-      <img src="assets/images/loading.gif" *ngIf="loading" class="loading">
-      {{ !loading ?'Add': ''}}
-    </button>
 
+    <mat-dialog-actions align="end">
+        <button mat-button  [mat-dialog-close]="true">Cancel</button>
+        <button mat-button  cdkFocusInitial>Add</button>
+      </mat-dialog-actions>
+      
   </div>
 </form>
+
+ 
+<mat-spinner *ngIf='loading'></mat-spinner>
+ 

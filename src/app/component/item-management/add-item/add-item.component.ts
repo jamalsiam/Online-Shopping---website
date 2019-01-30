@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemService } from '../../common/services/item.service';
 import { FormGroup, FormBuilder, Validators, } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ItemVM } from 'src/app/common/models/itemVM.model';
+import { MatDialogRef } from '@angular/material';
+import { ItemService } from 'src/app/common/services/item.service';
 
 
 
@@ -39,7 +40,10 @@ export class AddItemComponent implements OnInit {
   ];
 
 
-  constructor(private formBuilder: FormBuilder, private itemService: ItemService, private toastr: ToastrService) { }
+  constructor(private formBuilder: FormBuilder, 
+    private itemService: ItemService, 
+    private toastr: ToastrService,
+    private dialogRef: MatDialogRef<AddItemComponent>) { }
 
   get _itemForm() { return this.itemForm.controls; }
 
@@ -121,6 +125,7 @@ export class AddItemComponent implements OnInit {
             this.toastr.success('Added Successfully', res.name);
             this.imagelistBase64 = [];
             this.itemForm.reset();
+            this.dialogRef.close();
 
           },
           (error) => {

@@ -7,8 +7,9 @@ import { LogoutComponent } from './component/logout/logout.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { UnauthorizedCanActivate } from './framework/canActivate/unauthorized.canActivate';
 import { AuthorizedCanActivate } from './framework/canActivate/authorized.canActivate';
-import { AddItemComponent } from './component/add-item/add-item.component';
 import { ItemDetailComponent } from './component/item-detail/item-detail.component';
+import { ProfileComponent } from './component/profile/profile.component';
+import { ItemManagementComponent } from './component/item-management/item-management.component';
 
 const routes: Routes = [
   {
@@ -33,15 +34,22 @@ const routes: Routes = [
     canActivate: [AuthorizedCanActivate]
   },
   {
-    path: 'addItem',
-    component: AddItemComponent,
+    path: 'profile',
+    component: ProfileComponent,
     canActivate: [AuthorizedCanActivate]
-  },{
+  },
+  {
+    path: 'item-management',
+    component: ItemManagementComponent,
+    canActivate: [AuthorizedCanActivate]
+  },
+  
+  {
     path: 'item/:id',
     component: ItemDetailComponent,
   },
 
-  
+
   {
     path: '',
     redirectTo: '/home',

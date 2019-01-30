@@ -1,0 +1,19 @@
+section {
+    .toolbar-add-item{
+       cursor: pointer;
+    }
+  .spacer {
+    flex: 1 1 auto;
+    .icon {
+      padding: 0 14px;
+    }
+  }
+
+  margin: 60px 10px;
+  .table-container {
+    .item-image{
+      height: 60px;
+      width: 60px;
+    }
+  }
+}

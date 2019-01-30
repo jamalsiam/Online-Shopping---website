@@ -31,13 +31,16 @@ import { LoginService } from './component/login/service/login.service';
 import { AppInitializerService } from './framework/appInitializer/appInitializer.service';
 import { RequestInterceptor } from './framework/interceptor/request.interceptor';
 import { AccountStore } from './framework/dataStore/account/account.store';
-import { AddItemComponent } from './component/add-item/add-item.component';
 import { ItemService } from './common/services/item.service';
 import { MaterialModule } from './material';
 import { ToastrModule } from 'ngx-toastr';
 import { MomentModule } from 'angular2-moment';
 import { ItemDetailComponent } from './component/item-detail/item-detail.component';
 import { GalleryComponent } from './common/UIcomponent/gallery/gallery.component';
+import { ProfileComponent } from './component/profile/profile.component';
+import { ItemManagementComponent } from './component/item-management/item-management.component';
+import { AddItemComponent } from './component/item-management/add-item/add-item.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +60,9 @@ import { GalleryComponent } from './common/UIcomponent/gallery/gallery.component
     LogoutComponent,
     AddItemComponent,
     ItemDetailComponent,
-    GalleryComponent
+    GalleryComponent,
+    ProfileComponent,
+    ItemManagementComponent
   ],
   imports: [
     BrowserModule,
@@ -94,6 +99,7 @@ import { GalleryComponent } from './common/UIcomponent/gallery/gallery.component
     }
 
   ],
+  entryComponents:[AddItemComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

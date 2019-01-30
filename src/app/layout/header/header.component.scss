@@ -21,7 +21,7 @@ header {
       float: left;
       display: flex;
       height: 60px;
-      img{
+      img {
         margin: auto 10px;
         height: 40px;
       }
@@ -127,4 +127,13 @@ header {
       clear: both;
     }
   }
+}
+ 
+.user-image {
+  width: 60px;
+  height: 60px;
+  margin: auto 60px;
+  display: block;
+  border-radius: 50%;
+  border: 1px solid #ccc;
 }
