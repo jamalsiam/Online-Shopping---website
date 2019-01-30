@@ -16,7 +16,7 @@
       <ng-container matColumnDef="images">
         <mat-header-cell *matHeaderCellDef> image </mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <img [src]="element.images" class="item-image">
+          <img [src]="element.images" [routerLink]="[ '/item',element.id]" class="item-image">
         </mat-cell>
       </ng-container>
 
@@ -47,12 +47,12 @@
 
       <ng-container matColumnDef="discount">
         <mat-header-cell *matHeaderCellDef> discount </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.discount}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.discount| percent }} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="price">
         <mat-header-cell *matHeaderCellDef> price </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.price | currency}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="action">
@@ -69,6 +69,7 @@
 
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
   </div>

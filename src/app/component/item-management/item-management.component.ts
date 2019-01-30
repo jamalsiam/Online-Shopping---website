@@ -21,6 +21,9 @@ export class ItemManagementComponent implements OnInit {
 
   openAddItemDialog() {
     this.dialog.open(AddItemComponent)
+    .afterClosed().subscribe(result => {
+      this._itemList.subscribe()
+    });
   }
 
   get _itemList() {
@@ -42,7 +45,6 @@ export class ItemManagementComponent implements OnInit {
       ).subscribe();
 
   }
-
   ngOnInit() {
   }
 
