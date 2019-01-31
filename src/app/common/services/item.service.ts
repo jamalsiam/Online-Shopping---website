@@ -23,8 +23,8 @@ export class ItemService {
   itemListHomePage(): Observable<any> {
     return this.http.get<ItemVM[]>(`/api/item/list`);
   }
-  viewItem(id): Observable<any> {
-    return this.http.get<ItemVM>(`/api/item/${id}`);
+  viewItem(itemId): Observable<any> {
+    return this.http.get<ItemVM>(`/api/item/${itemId}`);
   }
 
   accountList(): Observable<any> {
@@ -32,7 +32,7 @@ export class ItemService {
   }
 
   deleteItem(itemId): Observable<any> {
-    return this.http.delete<ItemVM[]>(`/api/item/delete/${itemId}`);
+    return this.http.delete<ItemVM[]>(`/api/item/${itemId}`);
   }
 
 
