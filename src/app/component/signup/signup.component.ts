@@ -45,6 +45,7 @@ export class SignupComponent implements OnInit {
     this.signupService.signup(this.signupForm.value).subscribe(res => {
       this.cookieService.setUserInfo(res);
       this.router.navigate(['']);
+      location.reload()
 
     }, (err) => {
       this.loading = false;

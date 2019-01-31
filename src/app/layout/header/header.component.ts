@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   }
 
   get username() {
-    return this.accountStore.getAccountInfo().username;
+    return this.accountStore.getAccountInfo() ? this.accountStore.getAccountInfo().username : '';
   }
 
   openMenu() {

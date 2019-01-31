@@ -41,8 +41,9 @@ export class LoginComponent implements OnInit {
 
     this.loginService.login(this.signinForm.value).subscribe(res => {
       this.cookieService.setUserInfo(res);
+      
+      location.reload()
       this.router.navigate(['']);
-
     }, (err) => {
       this.loading = false;
       if (err.status === 401) {
