@@ -1,3 +1,28 @@
-<p>
-  profile works!
-</p>
+<section class="page">
+  <span class="page-header">
+
+    <span>Profile Info</span>
+    <span style="flex: auto;"></span>
+    <i class="fas fa-cog" (click)='openEditProfileDialog()'></i>
+  </span>
+  <hr>
+  <div class="profile-content">
+    <picture>
+      <img [src]="userData.picture" alt="">
+
+      <mat-spinner  class="change-image-ioader" *ngIf='changeImageLoader' diameter='50'></mat-spinner>
+      
+      <div class="change-image-input-container">
+        <input type="file" (change)="onChangeProfileImage($event)" id="change-image-input" multiple class="upload-file-btn"
+          accept=" image/jpeg, image/png" />
+        <label for="change-image-input"> <i class="fas fa-cog"></i></label>
+      </div>
+    </picture>
+    <div class="profile-info">
+      <p><span>username:</span> {{userData.username}}</p>
+      <p><span>email:</span> {{userData.email}}</p>
+      <p><span>phone number:</span> {{userData.phoneNumber}}</p>
+
+    </div>
+  </div>
+</section>

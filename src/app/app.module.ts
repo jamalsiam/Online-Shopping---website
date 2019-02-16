@@ -40,6 +40,8 @@ import { GalleryComponent } from './common/UIcomponent/gallery/gallery.component
 import { ProfileComponent } from './component/profile/profile.component';
 import { ItemManagementComponent } from './component/item-management/item-management.component';
 import { AddItemComponent } from './component/item-management/add-item/add-item.component';
+import { EditProfileComponent } from './component/profile/edit-profile/edit-profile.component';
+import { ProfileService } from './component/profile/service/profile.service';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,8 @@ import { AddItemComponent } from './component/item-management/add-item/add-item.
     ItemDetailComponent,
     GalleryComponent,
     ProfileComponent,
-    ItemManagementComponent
+    ItemManagementComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -96,10 +99,11 @@ import { AddItemComponent } from './component/item-management/add-item/add-item.
       provide: HTTP_INTERCEPTORS,
       useClass: RequestInterceptor,
       multi: true,
-    }
+    },
+    ProfileService
 
   ],
-  entryComponents:[AddItemComponent],
+  entryComponents: [AddItemComponent, EditProfileComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

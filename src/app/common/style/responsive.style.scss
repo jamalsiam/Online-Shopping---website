@@ -49,6 +49,10 @@
   .remember_me {
     padding-bottom: 20px!important;
   }
+  .profile-content{
+    flex-direction: column;
+    align-items: center;
+  } 
 }
 
 @media screen and (max-width: 1000px) {

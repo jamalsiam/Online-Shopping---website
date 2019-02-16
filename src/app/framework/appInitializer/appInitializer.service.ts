@@ -20,6 +20,8 @@ export class AppInitializerService {
     return this.httpClient.get(`/api/account/info`)
       .toPromise()
       .then((res: AccountVM) => {
+        console.log(res);
+        
         this.accountStore.setAccountInfo(res)
       })
       .catch((error) => {

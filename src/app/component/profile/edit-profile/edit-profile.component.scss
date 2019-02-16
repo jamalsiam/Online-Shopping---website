@@ -1,0 +1,14 @@
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .form-content {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+   
+    @media screen and (max-height: 700px) {
+      zoom: .5;
+    }
+  }
+}

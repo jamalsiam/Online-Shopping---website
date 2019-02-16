@@ -1,0 +1,20 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" *ngIf='!loading'>
+  <div class="form-content">
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name">
+      <mat-error *ngIf="userForm.controls.name.errors && !userForm.controls.name.untouched && userForm.controls.name.errors.required">
+        name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" placeholder="phone number" formControlName="phoneNumber">
+      <mat-error *ngIf="userForm.controls.phoneNumber.errors">
+        phone number is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-dialog-actions align="end">
+      <button mat-button [mat-dialog-close]="true">Cancel</button>
+      <button mat-button cdkFocusInitial [disabled]='userForm.invalid'>save change</button>
+    </mat-dialog-actions>
+  </div>
+</form>
